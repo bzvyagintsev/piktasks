@@ -1,0 +1,1 @@
+mongoimport --db pikDB --collection tasks --jsonArray --file C:\Users\Admin\Documents\projects\pik\data.json
