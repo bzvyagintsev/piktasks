@@ -1,0 +1,15 @@
+@import 'font-awesome.min.css';
+@import 'bootstrap/bootstrap.scss';
+@font-face {
+    font-family: "ProbaPro";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/regular-webfont.woff") format("woff"), url("../fonts/regular-webfont.woff2") format("woff2"),
+}
+
+@font-face {
+    font-family: "ProbaPro";
+    font-style: normal;
+    font-weight: bold;
+    src: url("../fonts/semibold-webfont.woff") format("woff"), url("../fonts/semibold-webfont.woff2") format("woff2"),
+}

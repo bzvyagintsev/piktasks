@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TaskService} from "../_services/task.service";
+import { TaskService } from "../_services/task.service";
 
 @Component({
   selector: 'app-task',
@@ -7,9 +7,11 @@ import {TaskService} from "../_services/task.service";
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
+  title = "Список задач";
 
   tasks: any;
-
+  p: number = 1;
+  
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
@@ -24,4 +26,11 @@ export class TaskComponent implements OnInit {
     });
   }
 
+  deleteTask(id) {
+    this.taskService.deleteTask(id).then((result) => {
+      this.tasks = this.tasks.filter(task => task._id !== id);
+    }, (err) => {
+      console.log(err);
+    });
+  }
 }

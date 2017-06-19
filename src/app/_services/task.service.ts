@@ -9,13 +9,24 @@ export class TaskService {
   
   getAllTasks() {
     return new Promise((resolve, reject) => {
-      this.http.get('/task')
+      this.http.get('api/tasks')
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
         }, (err) => {
           reject(err);
         });
+    });
+  }
+
+  deleteTask(id) {
+    return new Promise((resolve, reject) => {
+      this.http.delete('api/tasks/' + id)
+      .subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
     });
   }
 }

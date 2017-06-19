@@ -1,0 +1,19 @@
+.table-id {
+    width: 60px;
+    text-align: center;
+}
+
+.table-actions {
+    width: 100px;
+    text-align: center;
+}
+
+.task-name,
+.task-info {
+    margin-bottom: 0;
+}
+
+.task-info {
+    margin-top: 1em;
+    color: #636c72;
+}

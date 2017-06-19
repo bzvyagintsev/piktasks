@@ -8,8 +8,11 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "dist")));
 
-var task = require("./api/routes/task.js");
-app.use("/task", task);
+var tasks = require("./api/routes/tasks.js");
+app.use("/api/tasks", tasks);
+app.get('*', function(req, res) {
+    res.sendFile(__dirname + '/dist/index.html');
+});
 
 // Database
 var mongoose = require("mongoose");
