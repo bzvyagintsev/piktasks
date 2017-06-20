@@ -14,10 +14,12 @@ import { TaskComponent } from './task/task.component';
 import { TaskService } from './_services/task.service';
 import { SearchFilterPipe } from './_pipes/search-filter.pipe';
 import { ClickOutsideDirective } from './_directives/click-outside.directive';
+import { TaskCreateComponent } from './task-create/task-create.component';
 
 const ROUTES = [
   { path: '', redirectTo: 'tasks', pathMatch: 'full' },
-  { path: 'tasks', component: TaskComponent }
+  { path: 'tasks', component: TaskComponent },
+  { path: 'task-create', component: TaskCreateComponent }
 ];
 
 @NgModule({
@@ -25,7 +27,8 @@ const ROUTES = [
     AppComponent,
     TaskComponent,
     SearchFilterPipe,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    TaskCreateComponent
   ],
   imports: [
     BrowserModule,

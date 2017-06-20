@@ -18,6 +18,42 @@ export class TaskService {
         });
     });
   }
+  
+  showTask(id) {
+    return new Promise((resolve, reject) => {
+        this.http.get('api/tasks/' + id)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res)
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  saveTask(data) {
+    return new Promise((resolve, reject) => {
+        this.http.post('api/tasks', data)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+  updateTask(id, data) {
+    return new Promise((resolve, reject) => {
+        this.http.put('api/tasks/'+id, data)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
 
   deleteTask(id) {
     return new Promise((resolve, reject) => {

@@ -1,0 +1,26 @@
+<div class="card card-tasks">
+    <div class="card-block">
+        <h1>{{ title }}</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <form (ngSubmit)="saveTask()" #taskForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Название</label>
+                        <input type="text" class="form-control" [(ngModel)]="task.name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Тип</label>
+                        <input type="text" class="form-control" [(ngModel)]="task.type" name="type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Описание</label>
+                        <input type="text" class="form-control" [(ngModel)]="task.description" name="description" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm" [disabled]="!taskForm.form.valid">Добавить</button><a [routerLink]="['/tasks']" class="btn btn-sm">Назад</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

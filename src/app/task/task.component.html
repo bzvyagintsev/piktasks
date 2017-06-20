@@ -1,10 +1,15 @@
-<!-- Можно сделать сортировку по названию и добавление/изменение задачи -->
-
 <div class="card card-tasks">
     <div class="card-block">
         <h1>{{ title }}</h1>
-        <div class="form-group">
-            <input type="text" [(ngModel)]="search" class="form-control" placeholder="Поиск">
+        <div class="row">
+            <div class="col col-lg-3">
+                <div class="form-group">
+                    <input type="search" [(ngModel)]="search" class="form-control form-control-sm" placeholder="Поиск">
+                </div>
+            </div>
+            <div class="col text-right">
+                <!--<a [routerLink]="['/task-create']" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Добавить</a>-->
+            </div>
         </div>
         <div class="table-wrapper">
             <table class="table table-hover">
@@ -16,46 +21,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!--<tr class="task">
-                        <td class="table-id">1</td>
-                        <td (click)="showTask = true">
-                            <p class="task-name">Lorem</p>
-                            <div class="row task-info">
-                                <div class="col">
-                                    Type:
-                                    <p class="task-type">Ipsum</p>
-                                </div>
-                                <div class="col">
-                                    Description:
-                                    <p class="task-description">Set amet</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="table-actions">
-                            <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
-                        </td>
-                    </tr>
-                    <tr class="task">
-                        <td class="table-id">2</td>
-                        <td>
-                            <p class="task-name">Lorem</p>
-                            <p class="task-info">Ipsum | Set amet</p>
-                        </td>
-                        <td class="table-actions">
-                            <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
-                        </td>
-                    </tr>-->
-                    <tr *ngFor="let task of tasks | searchFilter:search | paginate: { itemsPerPage: 25, currentPage: p }; let i = index" [class.active]="i == activeTask" (clickOutside)="myFn(i)" class="task">
+                    <tr *ngFor="let task of tasks | searchFilter:search | paginate: { itemsPerPage: 25, currentPage: p }; let i = index" [class.active]="i == activeTask" (clickOutside)="clickOutsideTask(i)" class="task">
                         <td class="table-id">{{ task.id }}</td>
                         <td (click)="showTaskInfo(i)">
                             <p class="task-name">{{ task.name }}</p>
                             <div class="row task-info">
                                 <div class="col">
-                                    Type:
+                                    Тип:
                                     <p class="task-type">{{task.type}}</p>
                                 </div>
                                 <div class="col">
-                                    Description:
+                                    Описание:
                                     <p class="task-description">{{task.description}}</p>
                                 </div>
                             </div>

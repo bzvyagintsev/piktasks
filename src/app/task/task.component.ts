@@ -39,9 +39,10 @@ export class TaskComponent implements OnInit {
     this.activeTask = i;
   }
 
-  myFn(i){
+  clickOutsideTask(i){
     if (this.activeTask == i) {
       this.activeTask = null;
     }
   }
+
 }
