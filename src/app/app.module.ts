@@ -13,6 +13,7 @@ import { TaskComponent } from './task/task.component';
 
 import { TaskService } from './_services/task.service';
 import { SearchFilterPipe } from './_pipes/search-filter.pipe';
+import { ClickOutsideDirective } from './_directives/click-outside.directive';
 
 const ROUTES = [
   { path: '', redirectTo: 'tasks', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const ROUTES = [
   declarations: [
     AppComponent,
     TaskComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,

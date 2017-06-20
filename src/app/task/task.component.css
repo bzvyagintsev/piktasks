@@ -1,5 +1,10 @@
 .card-tasks {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+}
+
+.table-wrapper {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
 }
 
 .table-id {
@@ -10,6 +15,20 @@
 .table-actions {
     width: 100px;
     text-align: center;
+}
+
+.task {
+    cursor: pointer;
+}
+
+.task.active {
+    background: #fbfbfb;
+}
+
+.task.active .task-info {
+    margin-top: 1em;
+    max-height: 200px;
+    transition: height 0.1s;
 }
 
 .task-name,
@@ -27,19 +46,29 @@
     transition-delay: 0.1s;
 }
 
-.task.active {
-    background: #fbfbfb;
-}
-
-.task.active .task-info {
-    margin-top: 1em;
-    max-height: 200px;
-    transition: height 0.1s;
-}
-
 .task-type,
 .task-description {
     margin: 0;
     font-size: 0.875rem;
     color: #333;
+}
+
+.table-pagination {
+    text-align: right;
+}
+
+.table-pagination /deep/ .ngx-pagination>li {
+    margin-right: 0.25rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table-pagination /deep/ .ngx-pagination a:hover {
+    background: transparent;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+}
+
+.table-pagination /deep/ .ngx-pagination>li.current {
+    background: #4285f4;
 }

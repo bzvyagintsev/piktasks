@@ -38,4 +38,10 @@ export class TaskComponent implements OnInit {
   showTaskInfo(i) {
     this.activeTask = i;
   }
+
+  myFn(i){
+    if (this.activeTask == i) {
+      this.activeTask = null;
+    }
+  }
 }

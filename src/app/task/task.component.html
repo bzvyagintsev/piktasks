@@ -6,67 +6,67 @@
         <div class="form-group">
             <input type="text" [(ngModel)]="search" class="form-control" placeholder="Поиск">
         </div>
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th class="table-id">ID</th>
-                    <th>Название</th>
-                    <th class="table-actions">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--<tr class="task active">
-                    <td class="table-id">1</td>
-                    <td (click)="showTask = true">
-                        <p class="task-name">Lorem</p>
-                        <div class="row task-info">
-                            <div class="col">
-                                Type:
-                                <p class="task-type">Ipsum</p>
+        <div class="table-wrapper">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="table-id">ID</th>
+                        <th>Название</th>
+                        <th class="table-actions">Удалить</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr class="task">
+                        <td class="table-id">1</td>
+                        <td (click)="showTask = true">
+                            <p class="task-name">Lorem</p>
+                            <div class="row task-info">
+                                <div class="col">
+                                    Type:
+                                    <p class="task-type">Ipsum</p>
+                                </div>
+                                <div class="col">
+                                    Description:
+                                    <p class="task-description">Set amet</p>
+                                </div>
                             </div>
-                            <div class="col">
-                                Description:
-                                <p class="task-description">Set amet</p>
+                        </td>
+                        <td class="table-actions">
+                            <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
+                        </td>
+                    </tr>
+                    <tr class="task">
+                        <td class="table-id">2</td>
+                        <td>
+                            <p class="task-name">Lorem</p>
+                            <p class="task-info">Ipsum | Set amet</p>
+                        </td>
+                        <td class="table-actions">
+                            <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
+                        </td>
+                    </tr>-->
+                    <tr *ngFor="let task of tasks | searchFilter:search | paginate: { itemsPerPage: 25, currentPage: p }; let i = index" [class.active]="i == activeTask" (clickOutside)="myFn(i)" class="task">
+                        <td class="table-id">{{ task.id }}</td>
+                        <td (click)="showTaskInfo(i)">
+                            <p class="task-name">{{ task.name }}</p>
+                            <div class="row task-info">
+                                <div class="col">
+                                    Type:
+                                    <p class="task-type">{{task.type}}</p>
+                                </div>
+                                <div class="col">
+                                    Description:
+                                    <p class="task-description">{{task.description}}</p>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="table-actions">
-                        <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
-                    </td>
-                </tr>
-                <tr class="task">
-                    <td class="table-id">2</td>
-                    <td>
-                        <p class="task-name">Lorem</p>
-                        <p class="task-info">Ipsum | Set amet</p>
-                    </td>
-                    <td class="table-actions">
-                        <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
-                    </td>
-                </tr>-->
-                <tr *ngFor="let task of tasks | searchFilter:search | paginate: { itemsPerPage: 15, currentPage: p }; let i = index" [class.active]="i == activeTask" class="task">
-                    <td class="table-id">{{ task.id }}</td>
-                    <td (click)="showTaskInfo(i)">
-                        <p class="task-name">{{ task.name }}</p>
-                        <div class="row task-info">
-                            <div class="col">
-                                Type:
-                                <p class="task-type">{{task.type}}</p>
-                            </div>
-                            <div class="col">
-                                Description:
-                                <p class="task-description">{{task.description}}</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="table-actions">
-                        <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div *ngIf="tasks">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        </td>
+                        <td class="table-actions">
+                            <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task._id)"><i class="fa fa-close"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        <pagination-controls (pageChange)="p = $event" autoHide="false" previousLabel="Предыдущая" nextLabel="Следующая" class="table-pagination"></pagination-controls>
     </div>
 </div>
