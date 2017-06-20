@@ -16,7 +16,7 @@ app.get('*', function(req, res) {
 
 // Database
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/pikDB");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/pikDB");
 mongoose.connection
     .on('error', console.error.bind(console, 'connection error:'))
     .once('open', function() {
@@ -24,7 +24,7 @@ mongoose.connection
     });
 
 // Server
-var port = process.envPORT || 3000;
+var port = process.env.PORT || 3000;
 app.set('port', port);
 
 var server = http.createServer(app);
