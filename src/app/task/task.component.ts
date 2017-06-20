@@ -11,6 +11,7 @@ export class TaskComponent implements OnInit {
 
   tasks: any;
   p: number = 1;
+  activeTask: number;
   
   constructor(private taskService: TaskService) { }
 
@@ -32,5 +33,9 @@ export class TaskComponent implements OnInit {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  showTaskInfo(i) {
+    this.activeTask = i;
   }
 }

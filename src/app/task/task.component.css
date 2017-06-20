@@ -1,3 +1,7 @@
+.card-tasks {
+    margin-bottom: 1rem;
+}
+
 .table-id {
     width: 60px;
     text-align: center;
@@ -14,6 +18,28 @@
 }
 
 .task-info {
-    margin-top: 1em;
+    max-height: 0;
+    /*margin-top: 1em;*/
+    font-size: 0.75rem;
     color: #636c72;
+    overflow: hidden;
+    transition: height 0.2s;
+    transition-delay: 0.1s;
+}
+
+.task.active {
+    background: #fbfbfb;
+}
+
+.task.active .task-info {
+    margin-top: 1em;
+    max-height: 200px;
+    transition: height 0.1s;
+}
+
+.task-type,
+.task-description {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #333;
 }
