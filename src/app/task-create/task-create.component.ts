@@ -20,7 +20,7 @@ export class TaskCreateComponent implements OnInit {
   saveTask() {
     this.taskService.saveTask(this.task).then((result) => {
       let id = result['_id'];
-      this.router.navigate(['/tasks', id]);
+      this.router.navigate(['/tasks']);
     }, (err) => {
       console.log(err);
     });
